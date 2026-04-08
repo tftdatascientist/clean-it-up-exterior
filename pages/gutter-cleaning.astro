@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+import Footer from '../components/Footer.astro';
+import { BRAND } from '../config/brand';
+
+const faqs = [
+  { q: 'How do you clean gutters without ladders?', a: 'We use a powerful gutter vacuum system with carbon fibre poles reaching up to 40ft. This allows safe, ground-level cleaning for most two and three-storey properties.' },
+  { q: 'How often should gutters be cleaned?', a: 'At least once a year, ideally in late autumn after leaf fall. Properties near trees may benefit from twice-yearly cleaning.' },
+  { q: 'Can you inspect my gutters for damage?', a: 'Yes — our vacuum system includes a camera attachment so we can show you the condition of your gutters before and after cleaning.' },
+  { q: 'What happens if gutters are blocked?', a: 'Blocked gutters cause water to overflow down walls, leading to damp, staining, and potentially serious structural damage over time.' },
+];
+---
+
+<BaseLayout title="Gutter Cleaning & Vacuum Clearance" description="Professional gutter cleaning in Gloucester using powerful vacuum systems. Up to 40ft reach, no ladders needed. Prevent damp and water damage.">
+  <Header slot="header" />
+
+  <div class="mt-16 md:mt-20 bg-primary text-white py-16 px-4">
+    <div class="container-main">
+      <h1 class="text-4xl md:text-5xl font-heading font-extrabold mb-4">Gutter Cleaning & Vacuum Clearance</h1>
+      <p class="text-xl text-blue-100 max-w-3xl">Powerful ground-level gutter vacuum system — safe, fast and thorough. No ladders needed for most properties.</p>
+    </div>
+  </div>
+
+  <section class="section-padding bg-white">
+    <div class="container-main grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div>
+        <h2 class="text-2xl md:text-3xl font-heading font-bold text-dark mb-6">The Problem</h2>
+        <p class="text-gray-600 leading-relaxed mb-4">
+          Gutters fill with leaves, moss, silt, and debris throughout the year. When blocked, rainwater overflows down your walls causing unsightly staining, damp penetration, and eventually structural damage.
+        </p>
+        <p class="text-gray-600 leading-relaxed">
+          Many homeowners don't notice blocked gutters until water is already causing problems. Regular cleaning prevents expensive repairs.
+        </p>
+      </div>
+      <div class="aspect-[4/3] bg-gray-200 rounded-2xl flex items-center justify-center">
+        <div class="text-center text-gray-400">
+          <svg class="w-16 h-16 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <p class="text-sm">Gutter vacuum in action</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding bg-light">
+    <div class="container-main">
+      <h2 class="text-2xl md:text-3xl font-heading font-bold text-dark mb-8 text-center">Our Method</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          { step: '1', title: 'Ground-Level Vacuum', desc: 'Our 3600W gutter vacuum with carbon fibre poles reaches up to 40ft — clearing all debris safely from the ground.' },
+          { step: '2', title: 'Camera Inspection', desc: 'Before and after photos with our gutter camera so you can see the results and spot any damage.' },
+          { step: '3', title: 'Downpipe Flush', desc: 'We flush all downpipes to ensure clear drainage from roof to ground.' },
+        ].map(item => (
+          <div class="bg-white rounded-xl p-6 border border-gray-100">
+            <div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-heading font-bold mb-4">{item.step}</div>
+            <h3 class="text-lg font-heading font-bold text-dark mb-2">{item.title}</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding bg-white">
+    <div class="container-main max-w-3xl">
+      <h2 class="text-2xl md:text-3xl font-heading font-bold text-dark mb-8 text-center">Frequently Asked Questions</h2>
+      <div class="space-y-4">
+        {faqs.map(faq => (
+          <details class="bg-light rounded-xl border border-gray-100 group">
+            <summary class="px-6 py-4 cursor-pointer font-heading font-bold text-dark flex justify-between items-center">
+              {faq.q}
+              <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-6 pb-4 text-gray-600 leading-relaxed">{faq.a}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner />
+  <Footer slot="footer" />
+</BaseLayout>

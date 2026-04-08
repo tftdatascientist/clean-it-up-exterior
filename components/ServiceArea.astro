@@ -1,0 +1,29 @@
+---
+import { BRAND } from '../config/brand';
+---
+
+<section class="section-padding bg-light">
+  <div class="container-main">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-dark mb-4">Service Area</h2>
+        <p class="text-gray-600 text-lg mb-6">Serving {BRAND.SERVICE_AREA} and surrounding areas. We cover a wide radius to bring professional exterior cleaning to your doorstep.</p>
+        <div class="flex flex-wrap gap-2">
+          {BRAND.AREAS.map(area => (
+            <span class="bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium">{area}</span>
+          ))}
+        </div>
+      </div>
+      <div class="aspect-[4/3] rounded-2xl bg-gray-200 overflow-hidden">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d78547.04285753685!2d-2.3137!3d51.8642!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48710c43e74b8a09%3A0x4e41c1c04e2e0bfb!2sGloucester%2C%20UK!5e0!3m2!1sen!2suk!4v1"
+          class="w-full h-full border-0"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Service area map — Gloucester and Gloucestershire"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>

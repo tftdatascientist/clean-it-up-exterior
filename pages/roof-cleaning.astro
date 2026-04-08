@@ -1,0 +1,104 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+import Footer from '../components/Footer.astro';
+import { BRAND } from '../config/brand';
+
+const faqs = [
+  { q: 'How long does a roof clean take?', a: 'Most residential roofs take one full day. Larger or heavily moss-covered roofs may require two days.' },
+  { q: 'Will you damage my tiles?', a: 'No. We use gentle soft wash methods and manual scraping. We never use high-pressure jets on roof tiles, which can cause damage.' },
+  { q: 'Do I need to be home?', a: 'Not necessarily, as long as we have access to an outside water supply and the property. We\'ll arrange everything beforehand.' },
+  { q: 'How often should I have my roof cleaned?', a: 'Every 3–5 years is typical for most UK roofs, depending on surrounding trees and the local environment.' },
+  { q: 'Do you apply a biocide treatment?', a: 'Yes, we can apply a biocide treatment after cleaning to inhibit future moss and algae growth for up to 2 years.' },
+];
+---
+
+<BaseLayout title="Roof Cleaning & Moss Removal" description="Professional roof cleaning and moss removal in Gloucester. Safe soft wash and biocide treatment to restore and protect your roof tiles.">
+  <Header slot="header" />
+
+  <div class="mt-16 md:mt-20 bg-primary text-white py-16 px-4">
+    <div class="container-main">
+      <h1 class="text-4xl md:text-5xl font-heading font-extrabold mb-4">Roof Cleaning & Moss Removal</h1>
+      <p class="text-xl text-blue-100 max-w-3xl">Safe, thorough cleaning to restore your roof's appearance and extend its lifespan. Serving {BRAND.SERVICE_AREA}.</p>
+    </div>
+  </div>
+
+  <section class="section-padding bg-white">
+    <div class="container-main grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div>
+        <h2 class="text-2xl md:text-3xl font-heading font-bold text-dark mb-6">The Problem</h2>
+        <p class="text-gray-600 leading-relaxed mb-4">
+          Over time, moss, algae and lichen build up on roof tiles. This isn't just unsightly — it traps moisture, loosens tiles, and can lead to costly damage. Blocked valleys and gutters from moss debris cause water ingress and damp.
+        </p>
+        <p class="text-gray-600 leading-relaxed">
+          Left untreated, moss growth shortens your roof's lifespan and reduces your property's kerb appeal and value.
+        </p>
+      </div>
+      <div class="aspect-[4/3] bg-gray-200 rounded-2xl flex items-center justify-center">
+        <div class="text-center text-gray-400">
+          <svg class="w-16 h-16 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+          <p class="text-sm">Before/after roof photo</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding bg-light">
+    <div class="container-main">
+      <h2 class="text-2xl md:text-3xl font-heading font-bold text-dark mb-8 text-center">Our Method</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          { step: '1', title: 'Manual Scraping', desc: 'We carefully remove thick moss growth by hand, clearing valleys, ridges and tile surfaces without damaging the roof.' },
+          { step: '2', title: 'Soft Wash', desc: 'A low-pressure wash removes remaining algae, lichen and dirt. Gentle on tiles but highly effective at restoring the surface.' },
+          { step: '3', title: 'Biocide Treatment', desc: 'Optional protective coating that kills remaining spores and inhibits regrowth for up to 2 years.' },
+        ].map(item => (
+          <div class="bg-white rounded-xl p-6 border border-gray-100">
+            <div class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-heading font-bold mb-4">{item.step}</div>
+            <h3 class="text-lg font-heading font-bold text-dark mb-2">{item.title}</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding bg-white">
+    <div class="container-main">
+      <h2 class="text-2xl md:text-3xl font-heading font-bold text-dark mb-4 text-center">Benefits</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-8">
+        {[
+          { title: 'Longer Roof Life', desc: 'Remove moisture-trapping moss to prevent tile damage and leaks.' },
+          { title: 'Kerb Appeal', desc: 'A clean roof transforms the look of your entire property.' },
+          { title: 'Property Value', desc: 'Well-maintained roofs are a strong selling point for buyers.' },
+          { title: 'Prevent Damage', desc: 'Stop moss from blocking gutters and valleys, avoiding costly repairs.' },
+        ].map(b => (
+          <div class="text-center p-4">
+            <h3 class="font-heading font-bold text-dark mb-2">{b.title}</h3>
+            <p class="text-gray-600 text-sm">{b.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding bg-light">
+    <div class="container-main max-w-3xl">
+      <h2 class="text-2xl md:text-3xl font-heading font-bold text-dark mb-8 text-center">Frequently Asked Questions</h2>
+      <div class="space-y-4">
+        {faqs.map(faq => (
+          <details class="bg-white rounded-xl border border-gray-100 group">
+            <summary class="px-6 py-4 cursor-pointer font-heading font-bold text-dark flex justify-between items-center">
+              {faq.q}
+              <svg class="w-5 h-5 text-gray-400 group-open:rotate-180 transition-transform shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <div class="px-6 pb-4 text-gray-600 leading-relaxed">{faq.a}</div>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner />
+  <Footer slot="footer" />
+</BaseLayout>

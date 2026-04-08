@@ -1,0 +1,56 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          DEFAULT: '#0B6FB8',
+          50: '#E8F4FC',
+          100: '#C5E3F7',
+          200: '#8DC7EF',
+          300: '#55ABE7',
+          400: '#1D8FDF',
+          500: '#0B6FB8',
+          600: '#095A96',
+          700: '#074574',
+          800: '#053052',
+          900: '#031B30',
+        },
+        secondary: {
+          DEFAULT: '#7BC142',
+          50: '#F2F9EC',
+          100: '#DFF0D0',
+          200: '#BFE1A1',
+          300: '#9FD272',
+          400: '#7BC142',
+          500: '#62A030',
+          600: '#4D7E26',
+          700: '#395D1C',
+          800: '#253D12',
+          900: '#121E09',
+        },
+        accent: {
+          DEFAULT: '#F5A623',
+          50: '#FEF5E6',
+          100: '#FDE7BF',
+          200: '#FBCF7F',
+          300: '#F9B73F',
+          400: '#F5A623',
+          500: '#D48A0E',
+          600: '#A46B0B',
+          700: '#744C08',
+          800: '#442D05',
+          900: '#140E02',
+        },
+        dark: '#1E2A38',
+        light: '#F7F9FB',
+      },
+      fontFamily: {
+        heading: ['Manrope', 'sans-serif'],
+        body: ['Inter', 'sans-serif'],
+      },
+    },
+  },
+  plugins: [],
+};

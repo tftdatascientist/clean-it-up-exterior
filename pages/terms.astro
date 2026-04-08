@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { BRAND } from '../config/brand';
+---
+
+<BaseLayout title="Terms of Service">
+  <Header slot="header" />
+
+  <div class="mt-16 md:mt-20 section-padding bg-white">
+    <div class="container-main max-w-3xl prose prose-gray">
+      <h1 class="text-3xl font-heading font-bold text-dark">Terms of Service</h1>
+      <p class="text-sm text-gray-500">Last updated: April 2026</p>
+
+      <h2>1. Services</h2>
+      <p>{BRAND.NAME} provides exterior cleaning services including but not limited to roof cleaning, gutter cleaning, solar panel cleaning, and facade/render cleaning in the {BRAND.SERVICE_AREA} area.</p>
+
+      <h2>2. Quotes</h2>
+      <p>All quotes are provided free of charge and without obligation. Quotes are valid for 30 days from the date of issue. Prices may vary if the scope of work differs from what was described at the time of quoting.</p>
+
+      <h2>3. Booking & Cancellation</h2>
+      <p>Once you confirm a booking, we will schedule the work at a mutually agreed date and time. If you need to cancel or reschedule, please give us at least 24 hours' notice.</p>
+
+      <h2>4. Payment</h2>
+      <p>Payment is due upon completion of the work unless otherwise agreed. We accept bank transfer and cash.</p>
+
+      <h2>5. Insurance</h2>
+      <p>We carry public liability insurance. In the unlikely event of accidental damage caused by our work, please notify us immediately so we can resolve the matter.</p>
+
+      <h2>6. Access & Safety</h2>
+      <p>The customer is responsible for ensuring safe access to the property and for informing us of any hazards. We reserve the right to decline work if we judge conditions to be unsafe.</p>
+
+      <h2>7. Weather</h2>
+      <p>Some services are weather-dependent. If we need to reschedule due to adverse weather, we will contact you to arrange an alternative date at no extra cost.</p>
+
+      <h2>8. Liability</h2>
+      <p>While we take every care, we cannot guarantee the removal of all staining, particularly deep-set or long-standing marks. We will always advise you honestly about expected results before starting work.</p>
+
+      <h2>9. Governing Law</h2>
+      <p>These terms are governed by the laws of England and Wales.</p>
+
+      <h2>10. Contact</h2>
+      <p>For questions about these terms, contact us at <a href={`mailto:${BRAND.EMAIL}`}>{BRAND.EMAIL}</a> or call <a href={`tel:${BRAND.PHONE}`}>{BRAND.PHONE}</a>.</p>
+    </div>
+  </div>
+
+  <Footer slot="footer" />
+</BaseLayout>

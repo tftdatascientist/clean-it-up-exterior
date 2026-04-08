@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import ServicesOverview from '../components/ServicesOverview.astro';
+import WhyChooseUs from '../components/WhyChooseUs.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
+import ServiceArea from '../components/ServiceArea.astro';
+import Testimonials from '../components/Testimonials.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+import Footer from '../components/Footer.astro';
+import { BRAND } from '../config/brand';
+---
+
+<BaseLayout title="Professional Exterior Cleaning">
+  <Header slot="header" />
+  <Hero />
+  <ServicesOverview />
+  <WhyChooseUs />
+  <BeforeAfter />
+  <ServiceArea />
+  <Testimonials />
+  <CtaBanner />
+  <Footer slot="footer" />
+</BaseLayout>

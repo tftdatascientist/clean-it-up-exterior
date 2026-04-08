@@ -1,0 +1,52 @@
+---
+const items = [
+  { category: 'Roof', label: 'Roof moss removal — Gloucester' },
+  { category: 'Render', label: 'Render cleaning — algae removal' },
+  { category: 'Gutter', label: 'Gutter vacuum clearance' },
+];
+const filters = ['All', 'Roof', 'Gutter', 'Solar', 'Render'];
+---
+
+<section class="section-padding bg-white" id="gallery">
+  <div class="container-main">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-heading font-bold text-dark mb-4">Before & After</h2>
+      <p class="text-gray-600 text-lg max-w-2xl mx-auto">See the difference professional cleaning makes. Real results from real properties.</p>
+    </div>
+
+    <div class="flex flex-wrap justify-center gap-2 mb-10">
+      {filters.map((f, i) => (
+        <button
+          class:list={['px-5 py-2 rounded-full font-medium text-sm transition-colors', i === 0 ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600 hover:bg-primary/10 hover:text-primary']}
+          data-filter={f.toLowerCase()}
+        >
+          {f}
+        </button>
+      ))}
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {items.map(item => (
+        <div class="group rounded-xl overflow-hidden shadow-md" data-category={item.category.toLowerCase()}>
+          <div class="relative aspect-[4/3] bg-gray-200">
+            <div class="absolute inset-0 flex">
+              <div class="w-1/2 bg-gray-300 flex items-center justify-center border-r-2 border-white">
+                <span class="bg-red-500/80 text-white text-xs font-bold px-2 py-1 rounded">BEFORE</span>
+              </div>
+              <div class="w-1/2 bg-gray-100 flex items-center justify-center">
+                <span class="bg-green-500/80 text-white text-xs font-bold px-2 py-1 rounded">AFTER</span>
+              </div>
+            </div>
+          </div>
+          <div class="p-4 bg-white">
+            <p class="text-sm text-gray-600 font-medium">{item.label}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="text-center mt-10">
+      <a href="/gallery" class="btn-outline-dark">View Full Gallery</a>
+    </div>
+  </div>
+</section>

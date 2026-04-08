@@ -1,0 +1,88 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+import Footer from '../components/Footer.astro';
+
+const items = [
+  { category: 'roof', label: 'Roof moss removal — terraced house, Gloucester' },
+  { category: 'roof', label: 'Roof tile cleaning — detached property, Cheltenham' },
+  { category: 'gutter', label: 'Gutter vacuum clearance — 3-storey semi, Gloucester' },
+  { category: 'gutter', label: 'Gutter and fascia clean — bungalow, Stroud' },
+  { category: 'solar', label: 'Solar panel cleaning — residential array, Tewkesbury' },
+  { category: 'solar', label: 'Solar panel maintenance clean — farm installation' },
+  { category: 'render', label: 'Render soft wash — K-Rend facade, Gloucester' },
+  { category: 'render', label: 'Facade algae removal — pebbledash, Forest of Dean' },
+  { category: 'render', label: 'Red algae / rust streak removal — silicone render' },
+];
+const filters = ['all', 'roof', 'gutter', 'solar', 'render'];
+---
+
+<BaseLayout title="Gallery" description="Before and after photos of our exterior cleaning work across Gloucestershire. Roofs, gutters, solar panels and facades.">
+  <Header slot="header" />
+
+  <div class="mt-16 md:mt-20 bg-primary text-white py-16 px-4">
+    <div class="container-main text-center">
+      <h1 class="text-4xl md:text-5xl font-heading font-extrabold mb-4">Our Work</h1>
+      <p class="text-xl text-blue-100">See the difference professional exterior cleaning makes.</p>
+      <p class="text-blue-200 text-sm mt-2">(Illustrative images — to be replaced with photos from actual jobs)</p>
+    </div>
+  </div>
+
+  <section class="section-padding bg-white">
+    <div class="container-main">
+      <div class="flex flex-wrap justify-center gap-2 mb-10">
+        {filters.map((f, i) => (
+          <button
+            class:list={['gallery-filter px-5 py-2 rounded-full font-medium text-sm transition-colors capitalize', i === 0 ? 'bg-primary text-white' : 'bg-gray-100 text-gray-600 hover:bg-primary/10 hover:text-primary']}
+            data-filter={f}
+          >
+            {f === 'all' ? 'All' : f.charAt(0).toUpperCase() + f.slice(1)}
+          </button>
+        ))}
+      </div>
+
+      <div id="gallery-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {items.map(item => (
+          <div class="gallery-item rounded-xl overflow-hidden shadow-md" data-category={item.category}>
+            <div class="relative aspect-[4/3] bg-gray-200">
+              <div class="absolute inset-0 flex">
+                <div class="w-1/2 bg-gray-300 flex items-center justify-center border-r-2 border-white">
+                  <span class="bg-red-500/80 text-white text-xs font-bold px-2 py-1 rounded">BEFORE</span>
+                </div>
+                <div class="w-1/2 bg-gray-100 flex items-center justify-center">
+                  <span class="bg-green-500/80 text-white text-xs font-bold px-2 py-1 rounded">AFTER</span>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 bg-white">
+              <p class="text-sm text-gray-600">{item.label}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBanner />
+  <Footer slot="footer" />
+</BaseLayout>
+
+<script>
+  document.querySelectorAll('.gallery-filter').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.gallery-filter').forEach(b => {
+        b.classList.remove('bg-primary', 'text-white');
+        b.classList.add('bg-gray-100', 'text-gray-600');
+      });
+      btn.classList.remove('bg-gray-100', 'text-gray-600');
+      btn.classList.add('bg-primary', 'text-white');
+
+      const filter = (btn as HTMLElement).dataset.filter;
+      document.querySelectorAll('.gallery-item').forEach(item => {
+        const el = item as HTMLElement;
+        el.style.display = filter === 'all' || el.dataset.category === filter ? '' : 'none';
+      });
+    });
+  });
+</script>

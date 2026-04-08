@@ -1,0 +1,45 @@
+export const BRAND = {
+  NAME: '{{BRAND_NAME}}',
+  TAGLINE: 'Exterior Cleaning Gloucester',
+  DOMAIN: '{{DOMAIN}}.co.uk',
+  EMAIL: 'info@{{DOMAIN}}.co.uk',
+  PHONE: '{{PHONE}}',
+  WHATSAPP: '{{WHATSAPP}}',
+  SERVICE_AREA: 'Gloucester and Gloucestershire',
+  LOGO_PATH: '/logo.svg',
+  HOURS: 'Mon–Sun: 8am – 8pm (Evenings & Weekends Available)',
+  ADDRESS: 'Gloucester, Gloucestershire, UK',
+  SERVICES: [
+    {
+      name: 'Roof Cleaning',
+      slug: 'roof-cleaning',
+      shortDesc: 'Safe moss removal and soft wash treatments to restore your roof and extend its lifespan.',
+      icon: 'roof',
+    },
+    {
+      name: 'Gutter Cleaning',
+      slug: 'gutter-cleaning',
+      shortDesc: 'Powerful vacuum clearance up to 40ft from the ground — no ladders needed for most jobs.',
+      icon: 'gutter',
+    },
+    {
+      name: 'Solar Panel Cleaning',
+      slug: 'solar-panel-cleaning',
+      shortDesc: 'Pure water cleaning to maximise energy output — no detergents, no streaks, no risk.',
+      icon: 'solar',
+    },
+    {
+      name: 'Render & Facade Cleaning',
+      slug: 'render-cleaning',
+      shortDesc: 'Gentle soft wash for K-Rend, silicone and pebbledash — removes algae and staining safely.',
+      icon: 'render',
+    },
+  ],
+  USP: [
+    { title: 'Pure Water Technology', desc: 'Deionised water leaves zero streaks, no detergents needed.', icon: 'droplet' },
+    { title: 'Professional Equipment', desc: 'Mobile scaffold tower, gutter vacuum, carbon fibre poles.', icon: 'wrench' },
+    { title: 'Local & Insured', desc: 'Gloucester-based with full public liability insurance.', icon: 'shield' },
+    { title: 'Free No-Obligation Quotes', desc: 'Get an honest quote with no pressure — evenings & weekends.', icon: 'quote' },
+  ],
+  AREAS: ['Gloucester', 'Cheltenham', 'Stroud', 'Tewkesbury', 'Forest of Dean', 'Cirencester'],
+} as const;
